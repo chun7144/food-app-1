@@ -1,0 +1,6 @@
+apiVersion: v2
+name: food-app-chart
+description: Fullstack app with Next.js + NestJS + PostgreSQL
+type: application
+version: 0.1.0
+appVersion: "1.0"

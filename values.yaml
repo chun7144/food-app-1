@@ -1,0 +1,27 @@
+frontend:
+  image: wintari0179/next-app:1.0.0
+  replicaCount: 1
+  service:
+    type: NodePort
+    port: 3000
+    nodePort: 30001
+
+backend:
+  image: wintari0179/nest-app:1.0.0
+  replicaCount: 1
+  service:
+    port: 3000
+
+postgres:
+  image: postgres:15-alpine
+  service:
+    port: 5432
+  database: food_db
+
+config:
+  NEXT_PUBLIC_API_URL: "http://backend-service:3000"
+
+secret:
+  DATABASE_URL: "postgresql://postgres:password123@postgres-service:5432/food_db"
+  DB_PASSWORD: "password123"
+  JWT_SECRET: "test-secret-key-d9Gf"
